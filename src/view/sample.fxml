@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="200.0" prefWidth="150" style="-fx-background-color: gray" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="movieListButton" mnemonicParsing="false" onAction="#listMovies" prefHeight="40.0" prefWidth="150.0" text="Seznam Filmů" />
+                  <Button fx:id="actorListButton" mnemonicParsing="false" onAction="#listActors" prefHeight="40.0" prefWidth="150.0" text="Seznam Herců" />
+                  <Button fx:id="moviesWriterButton" mnemonicParsing="false" onAction="#moviesToXML" prefHeight="40.0" prefWidth="150.0" text="Zapiš filmy do XML" />
+                  <Button fx:id="actorsWriterButton" mnemonicParsing="false" onAction="#actorsToXML" prefHeight="40.0" prefWidth="150.0" text="Zapiš herce do XML" />
+                  <Button fx:id="endButton" mnemonicParsing="false" onAction="#endProgram" prefHeight="40.0" prefWidth="150.0" text="Konec Programu" />
+               </children>
+            </VBox>
+         </left>
+         <bottom>
+            <AnchorPane prefHeight="200.0" prefWidth="654.0" style="-fx-background-color: gray" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Jméno herce:" />
+                        <TextField fx:id="actorRelationshiptf"/>
+                        <Label text="Název filmu:" />
+                        <TextField fx:id="movieRelationshiptf"/>
+                        <Button mnemonicParsing="false" text="Přiřaď herce k filmu" onAction="#addRelationshipButtonClicked">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children></AnchorPane>
+         </bottom>
+         <top>
+            <GridPane fx:id="top" prefHeight="200.0" prefWidth="600.0" style="-fx-background-color: gray" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutX="225.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                     <children>
+                        <Label text="Název filmu:" />
+                        <TextField fx:id="movieNametf" />
+                        <Label text="Žánr filmu:" />
+                        <TextField fx:id="movieGenretf" />
+                        <Label text="Rok vydání:" />
+                        <TextField fx:id="movieYeartf" />
+                        <Button fx:id="addMoviebtn" mnemonicParsing="false" onAction="#addMovieButtonClicked" text="Přidej film">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Button>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </VBox>
+                  <VBox layoutX="476.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                     <children>
+                        <Label text="Celé jméno herce:" />
+                        <TextField fx:id="actorNametf" />
+                        <Label text="Rok narození:" />
+                        <TextField fx:id="actorYeartf" />
+                        <Button fx:id="addActorbtn" mnemonicParsing="false" onAction="#addActorButtonClicked" text="Přidej herce">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Button>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+               </rowConstraints></GridPane>
+         </top>
+         <center>
+         </center>
+         <right>
+            <AnchorPane prefHeight="340.0" prefWidth="200.0" style="-fx-background-color: gray" BorderPane.alignment="CENTER" />
+         </right>
+         <center>
+            <TableView fx:id="movieTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn prefWidth="200" text="Název">
+                  <cellValueFactory>
+                     <PropertyValueFactory property="name" />
+                  </cellValueFactory>
+                 </TableColumn>
+                 <TableColumn prefWidth="100" text="Rok">
+                    <cellValueFactory>
+                       <PropertyValueFactory property="year" />
+                    </cellValueFactory>
+                 </TableColumn>
+              </columns>
+            </TableView>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
